@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25FAD7151C4AF7DD00BD8F4F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FAD7141C4AF7DD00BD8F4F /* main.cpp */; };
+		25FAD71D1C4AFC5100BD8F4F /* Piano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FAD7141C4AF7DD00BD8F4F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Piano.cpp; sourceTree = "<group>"; };
+		25FAD71C1C4AFC5100BD8F4F /* Piano.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piano.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				25FAD7141C4AF7DD00BD8F4F /* main.cpp */,
+				25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */,
+				25FAD71C1C4AFC5100BD8F4F /* Piano.h */,
 			);
 			path = HashCode2016;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25FAD7151C4AF7DD00BD8F4F /* main.cpp in Sources */,
+				25FAD71D1C4AFC5100BD8F4F /* Piano.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
