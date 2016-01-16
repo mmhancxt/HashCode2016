@@ -13,5 +13,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "We are the champion!\n";
     Piano p("Yamaha");
     p.PrintMark();
+    auto c = 11;
+    std::cout << "c++" << c << std::endl;
     return 0;
 }
