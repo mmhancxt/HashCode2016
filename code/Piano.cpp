@@ -10,5 +10,5 @@
 
 void Piano::PrintMark()
 {
-    std::cout << mark << std::endl;
+    std::cout << "mark" << std::endl;
 }
