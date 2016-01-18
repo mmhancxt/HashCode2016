@@ -10,6 +10,9 @@ HashCode2016.xcodeproj
 
 
 # Boost 1.60 Support
+Download url:
+http://sourceforge.net/projects/boost/files/boost/1.60.0/
+
 Windows:
 please install/unzip it under the following path: "C:\HashCode2016\boost_1_60_0". This path has been added in the visual studio project file as addtional include path and addtional lib path. Make sure that you can compile the code under visual studio.
 
