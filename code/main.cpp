@@ -7,6 +7,17 @@
 //
 #include "Piano.h"
 #include <iostream>
+#include <vector>
+#include <string>
+#include <boost/algorithm/string.hpp>
+
+void test_boost()
+{
+    std::string s = "a,b,c,d,e";
+    std::vector<std::string> fields;
+    boost::split(fields, s, boost::is_any_of(","));
+    std::copy(fields.begin(), fields.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -15,5 +26,9 @@ int main(int argc, const char * argv[]) {
     p.PrintMark();
     auto c = 11;
     std::cout << "c++" << c << std::endl;
+
+
+    test_boost();
+
     return 0;
 }
