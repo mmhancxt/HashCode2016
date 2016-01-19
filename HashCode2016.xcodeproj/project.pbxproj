@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25FAD7151C4AF7DD00BD8F4F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FAD7141C4AF7DD00BD8F4F /* main.cpp */; };
-		25FAD71D1C4AFC5100BD8F4F /* Piano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */; };
+		25FD608C1C4EE9FF0034001B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FD60891C4EE9FF0034001B /* main.cpp */; };
+		25FD608D1C4EE9FF0034001B /* Piano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FD608A1C4EE9FF0034001B /* Piano.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,9 @@
 
 /* Begin PBXFileReference section */
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
-		25FAD7141C4AF7DD00BD8F4F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Piano.cpp; sourceTree = "<group>"; };
-		25FAD71C1C4AFC5100BD8F4F /* Piano.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piano.h; sourceTree = "<group>"; };
+		25FD60891C4EE9FF0034001B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = code/main.cpp; sourceTree = SOURCE_ROOT; };
+		25FD608A1C4EE9FF0034001B /* Piano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Piano.cpp; path = code/Piano.cpp; sourceTree = SOURCE_ROOT; };
+		25FD608B1C4EE9FF0034001B /* Piano.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Piano.h; path = code/Piano.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +60,19 @@
 		25FAD7131C4AF7DD00BD8F4F /* HashCode2016 */ = {
 			isa = PBXGroup;
 			children = (
-				25FAD7141C4AF7DD00BD8F4F /* main.cpp */,
-				25FAD71B1C4AFC5100BD8F4F /* Piano.cpp */,
-				25FAD71C1C4AFC5100BD8F4F /* Piano.h */,
+				25FD60811C4EE8890034001B /* code */,
 			);
 			path = HashCode2016;
+			sourceTree = "<group>";
+		};
+		25FD60811C4EE8890034001B /* code */ = {
+			isa = PBXGroup;
+			children = (
+				25FD60891C4EE9FF0034001B /* main.cpp */,
+				25FD608A1C4EE9FF0034001B /* Piano.cpp */,
+				25FD608B1C4EE9FF0034001B /* Piano.h */,
+			);
+			name = code;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25FAD7151C4AF7DD00BD8F4F /* main.cpp in Sources */,
-				25FAD71D1C4AFC5100BD8F4F /* Piano.cpp in Sources */,
+				25FD608C1C4EE9FF0034001B /* main.cpp in Sources */,
+				25FD608D1C4EE9FF0034001B /* Piano.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +218,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/Xavier/Programs/c++/boost_1_60_0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -219,6 +232,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/Xavier/Programs/c++/boost_1_60_0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -242,6 +260,7 @@
 				25FAD71A1C4AF7DD00BD8F4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
