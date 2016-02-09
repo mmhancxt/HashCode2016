@@ -24,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25DABA751C663663006B860F /* PaintFacade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PaintFacade.hpp; path = code/PaintFacade.hpp; sourceTree = SOURCE_ROOT; };
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FD60891C4EE9FF0034001B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = code/main.cpp; sourceTree = SOURCE_ROOT; };
 		25FD608A1C4EE9FF0034001B /* Piano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Piano.cpp; path = code/Piano.cpp; sourceTree = SOURCE_ROOT; };
@@ -71,6 +72,7 @@
 				25FD60891C4EE9FF0034001B /* main.cpp */,
 				25FD608A1C4EE9FF0034001B /* Piano.cpp */,
 				25FD608B1C4EE9FF0034001B /* Piano.h */,
+				25DABA751C663663006B860F /* PaintFacade.hpp */,
 			);
 			name = code;
 			sourceTree = "<group>";
@@ -101,7 +103,7 @@
 		25FAD7091C4AF7DC00BD8F4F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Liang LIU";
 				TargetAttributes = {
 					25FAD7101C4AF7DC00BD8F4F = {
@@ -158,6 +160,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
