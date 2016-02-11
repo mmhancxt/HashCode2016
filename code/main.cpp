@@ -12,7 +12,6 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     InputLoader loader;
-    loader.LoadFromFile("mother_of_all_warehouses.in");
     
     
     return 0;
