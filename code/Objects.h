@@ -37,7 +37,7 @@ enum Status
 
 struct Order
 {
-    Stauts staus;
+    Status staus;
 	Position deliverPosition;
 	map<int, int> purchasedProducts;
 };
