@@ -8,12 +8,13 @@
 
 #ifndef Common_h
 #define Common_h
-#include "InputLoader.h"
+#include "code/InputLoader.h"
+#include "code/Objects.h"
 #include <cmath>
 #include <iostream>
 static const int CalculateEula(const Position& a, const Position& b)
 {
-    return squr((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y));
+    return sqrt((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y)) + 0.5;
 }
 
 static WareHouse* GetNearestWareHouse(const InputLoader& loader, Position& p)
