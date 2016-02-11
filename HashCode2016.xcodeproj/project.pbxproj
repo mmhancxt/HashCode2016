@@ -24,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25915A701C6D0D0E00422C71 /* InputLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputLoader.h; path = code/InputLoader.h; sourceTree = SOURCE_ROOT; };
+		25915A711C6D0D2000422C71 /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Objects.h; path = code/Objects.h; sourceTree = SOURCE_ROOT; };
 		25DABA751C663663006B860F /* PaintFacade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PaintFacade.hpp; path = code/PaintFacade.hpp; sourceTree = SOURCE_ROOT; };
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FD60891C4EE9FF0034001B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = code/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -69,6 +71,8 @@
 		25FD60811C4EE8890034001B /* code */ = {
 			isa = PBXGroup;
 			children = (
+				25915A711C6D0D2000422C71 /* Objects.h */,
+				25915A701C6D0D0E00422C71 /* InputLoader.h */,
 				25FD60891C4EE9FF0034001B /* main.cpp */,
 				25FD608A1C4EE9FF0034001B /* Piano.cpp */,
 				25FD608B1C4EE9FF0034001B /* Piano.h */,
