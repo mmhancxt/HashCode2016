@@ -18,11 +18,13 @@ public:
     void Start()
     {
         InputLoader loader;
-        vector<Drown> drowns;
+        vector<Drone> drowns;
         for (int i = 0 ; i< const_droneNum; i++)
         {
-            Drown d(0, )
+            Drone d(loader.warehouses[0].position);
+            drowns.push_back(d);
         }
+        
         loader.LoadFromFile("mother_of_all_warehouses.in");
         vector<int> productNum;
         for (Order& order : loader.orders)
@@ -32,13 +34,13 @@ public:
                 productNum[it->first]+= it->second;
             }
         }
-        while (1)
-        {
-            for (int i = 0 ;i < const_droneNum ; i++)
-            {
-                if (l
-            }
-        }
+//        while (1)
+//        {
+//            for (int i = 0 ;i < const_droneNum ; i++)
+//            {
+//                if (drone.
+//            }
+//        }
     
     }
 };
