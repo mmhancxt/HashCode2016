@@ -38,12 +38,8 @@ enum Status
 
 struct Order
 {
-<<<<<<< HEAD
 	int id;
-	Status staus;
-=======
     Status status;
->>>>>>> 35f2c0e8e35ecb341f19ece3182f6db11097a1a0
 	Position deliverPosition;
 	map<int, int> purchasedProducts;
 };
