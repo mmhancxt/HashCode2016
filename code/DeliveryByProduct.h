@@ -40,9 +40,13 @@ public:
             {
                 if (drone.staus != FLY)
                 {
+                    if (drone.load != 0)
+                    {
+                        Order nearestOrder = GetNearestOrder(loader, p, drone);
+                    }
                     Position p = drone.position;
                     WareHouse nearestHouse = GetNearestWareHouse(loader, p);
-                    Order nearestOrder = GetNearestOrder(loader, p);
+                    
                 }
             }
         }
