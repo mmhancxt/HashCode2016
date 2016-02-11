@@ -60,8 +60,15 @@ struct Drone
         position.x = p.x;
         position.y = p.y;
         status = INWAREHOUSE;
+        nextUsableTurn = 0;
+        productId = 0;
+        productCount = 0;
     }
     int load;
+    int nextUsableTurn;
+    DroneStatus nextAction;
+    int productId;
+    int productCount;
     DroneStatus status;
     Position position;
     map<int, int> goods;
