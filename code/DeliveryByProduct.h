@@ -34,18 +34,47 @@ public:
                 productNum[it->first]+= it->second;
             }
         }
-        while (1)
+        for (int turn = 0; turn < loader.const_totalTurns; turn++)
         {
             for (int i = 0 ;i < const_droneNum ; i++)
             {
+                if (drone.nextUsableTurn == turn)
+                {
+                    
+                }
                 if (drone.staus != FLY)
                 {
+                    Position p = drone.position;
                     if (drone.load != 0)
                     {
-                        Order nearestOrder = GetNearestOrder(loader, p, drone);
+                        Order* nearestOrder = GetNearestOrder(loader, p, drone);
+                        if (nearestOrder != nullptr)
+                        {
+                            // Del
+                            deliver(drone.id, nearestOrder->id, int product_type, int count)
+
+                        }
                     }
-                    Position p = drone.position;
-                    WareHouse nearestHouse = GetNearestWareHouse(loader, p);
+                    else
+                    {
+                        // Load
+                        int product = -1;
+                        for (int productId = 0; productId < productNum.size() && product == -1; productId++)
+                        {
+                            if (productNum[productId] != 0)
+                            {
+                                product = productId;
+                            }
+                        }
+                        int productSize = std::min((loader.const_maxDroneLoad-load)/loader.products[productId].weight, productNum[productId]);
+                        
+                        WareHouse* nearestHouse = GetNearestWareHouse(loader, p);
+                        load(drone.id, nearestHouse->id, product, productSize);
+                        productNum[productId]-= productSize;
+                        drone.status = FLY;
+                        drone.productId = product;
+                        drone.productCount = productSize;
+                    }
                     
                 }
             }
