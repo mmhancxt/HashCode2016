@@ -42,9 +42,9 @@ struct Order
 	map<int, int> purchasedProducts;
 };
 
-struct Drown
+struct Drone
 {
-    Drown(Position p)
+    Drone(Position p)
     {
         load = 0;
         position.x = p.x;
