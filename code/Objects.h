@@ -28,8 +28,16 @@ struct WareHouse
 
 };
 
+enum Status
+{
+    UNPROCESSED,
+    INDELIVERING,
+    COMPLETED
+};
+
 struct Order
 {
+    Stauts staus;
 	Position deliverPosition;
 	map<int, int> purchasedProducts;
 };
