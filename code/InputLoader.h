@@ -14,24 +14,24 @@ class InputLoader
 {
 public:
 
-    void LoadFromFile(const string & fileName)
-    {
-        ifstream file(fileName);
-        if (file.is_open())
-        {
-            string line;
-            getline(file, line);
-            stringstream ss;
-            ss << line;
+	void LoadFromFile(const string & fileName)
+	{
+		ifstream file(fileName);
+		if (file.is_open())
+		{
+			string line;
+			getline(file, line);
+			stringstream ss;
+			ss << line;
 			ss >> const_rowNum >> const_columnNum >> const_droneNum >> const_totalTurns >> const_maxDroneLoad;
-            ss.clear();
-            //cout << param << endl;
+			ss.clear();
+			//cout << param << endl;
 
 			int productsNum;
 			getline(file, line);
 			ss << line;
 			ss >> productsNum;
-            ss.clear();
+			ss.clear();
 
 			getline(file, line);
 			ss << line;
@@ -49,7 +49,7 @@ public:
 			getline(file, line);
 			ss << line;
 			ss >> dataWarehouseNum;
-            ss.clear();
+			ss.clear();
 
 			for (int i = 0; i < dataWarehouseNum; ++i)
 			{
@@ -79,7 +79,7 @@ public:
 			getline(file, line);
 			ss << line;
 			ss >> orderNum;
-            ss.clear();
+			ss.clear();
 
 			for (int i = 0; i < orderNum; ++i)
 			{
@@ -121,49 +121,58 @@ public:
 
 
 
-            //while(unavailableSlotNb)
-            //{
-            //    getline(file, line);
-            //    UnavailableSlot slot;
-            //    ss << line;
-            //    ss >> slot.rowIndex >> slot.slotIndex;
-            //    //cout << slot << endl;
-            //    unavailableSlots.push_back(slot);
-            //    unavailableSlotNb--;
-            //    ss.clear();
-            //}
+			//while(unavailableSlotNb)
+			//{
+			//    getline(file, line);
+			//    UnavailableSlot slot;
+			//    ss << line;
+			//    ss >> slot.rowIndex >> slot.slotIndex;
+			//    //cout << slot << endl;
+			//    unavailableSlots.push_back(slot);
+			//    unavailableSlotNb--;
+			//    ss.clear();
+			//}
 
-            //int serverNb = param.NbServes;
-            //int serverIndex = 0;
-            //while(serverNb)
-            //{
-            //    getline(file, line);
-            //    auto server = std::make_shared<Server>();
-            //    ss << line;
-            //    ss >> server->size >> server->capacity;
-            //    ss.clear();
-            //    //cout << *server << endl;
-            //    server->id = serverIndex;
-            //    serverIndex++;
-            //    servers.push_back(server);
-            //    serverNb--;
-            //}
-        }
-        else
-        {
-            cout << " file is not open" << endl;
-        }
-    }
+			//int serverNb = param.NbServes;
+			//int serverIndex = 0;
+			//while(serverNb)
+			//{
+			//    getline(file, line);
+			//    auto server = std::make_shared<Server>();
+			//    ss << line;
+			//    ss >> server->size >> server->capacity;
+			//    ss.clear();
+			//    //cout << *server << endl;
+			//    server->id = serverIndex;
+			//    serverIndex++;
+			//    servers.push_back(server);
+			//    serverNb--;
+			//}
+
+
+		}
+		else
+		{
+			cout << " file is not open" << endl;
+		}
+
+		for (int i = 0; i != const_droneNum; ++i)
+		{
+			Drone drone(warehouses[0].position);
+			drone.id = i;
+			drone.nextUsableTurn = 0;
+			drones.push_back(drone);
+		}
+	}
 
 public:
 	vector<Product> products;
 	vector<WareHouse> warehouses;
 	vector<Order> orders;
-
+	vector< Drone > drones;
 	int const_rowNum;
 	int const_columnNum;
 	int const_droneNum;
 	int const_totalTurns;
 	int const_maxDroneLoad;
-
 };

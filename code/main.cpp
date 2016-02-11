@@ -7,14 +7,16 @@
 //
 #include <iostream>
 #include "InputLoader.h"
+#include "OrderFirst.hpp"
+#include <fstream>
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-
-	string fileName = "C:\\HashCode2016\\HashCode2016\\code\\mother_of_all_warehouses.in";
 	InputLoader loader;
-	loader.LoadFromFile(fileName);
-
+	loader.LoadFromFile(argv[1]);
+	OrderFirstDistribution distribute(loader);
+	distribute.run();
 	return 0;
 }
+
