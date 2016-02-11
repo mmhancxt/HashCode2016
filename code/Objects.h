@@ -42,6 +42,14 @@ struct Order
 	map<int, int> purchasedProducts;
 };
 
+enum DroneStatus
+{
+    INDEL,
+    WAIT,
+    INORDER,
+    INWAREHOUSE
+};
+
 struct Drone
 {
     Drone(Position p)
@@ -49,8 +57,10 @@ struct Drone
         load = 0;
         position.x = p.x;
         position.y = p.y;
+        status = INWAREHOUSE;
     }
     int load;
+    DroneStatus status;
     Position position;
     map<int, int> goods;
 };
