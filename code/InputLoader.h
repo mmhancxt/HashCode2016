@@ -85,7 +85,7 @@ public:
 			{
 				Order order;
 				order.id = i;
-				order.staus = UNPROCESSED;
+				order.status = UNPROCESSED;
 
 				getline(file, line);
 				ss << line;
