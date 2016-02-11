@@ -18,17 +18,18 @@ static const int CalculateEula(const Position& a, const Position& b)
 
 static WareHouse* GetNearestWareHouse(const InputLoader& loader, Position& p)
 {
-    int min_distance = INT_MAX;
-    int houseId = 0;
-    for (WareHOuse& house : loader.warehouses)
-    {
-        int distance = CalculateEula(p, house.Position);
-        if (distance < min_distance)
-        {
-            min_distance = distance;
-            houseId = house.Id;
-        }
-    }
+    return &loader.warehouses[0];
+//    int min_distance = INT_MAX;
+//    int houseId = 0;
+//    for (WareHOuse& house : loader.warehouses)
+//    {
+//        int distance = CalculateEula(p, house.Position);
+//        if (distance < min_distance)
+//        {
+//            min_distance = distance;
+//            houseId = house.Id;
+//        }
+//    }
 }
 
 static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, const Drone& drone)
@@ -58,7 +59,7 @@ static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, 
     }
     if (orderId != -1)
     {
-        return loader.orders[orderId]
+        return &loader.orders[orderId]
     }
     return nullptr;
 }
