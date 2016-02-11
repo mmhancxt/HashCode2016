@@ -17,9 +17,9 @@ static const int CalculateEula(const Position& a, const Position& b)
     return sqrt((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y)) + 0.5;
 }
 
-static WareHouse* GetNearestWareHouse(const InputLoader& loader, Position& p)
+static WareHouse* GetNearestWareHouse(InputLoader& loader, const Position& p)
 {
-    return &loader.warehouses[0];
+    return &(loader.warehouses[0]);
 //    int min_distance = INT_MAX;
 //    int houseId = 0;
 //    for (WareHOuse& house : loader.warehouses)
@@ -33,14 +33,14 @@ static WareHouse* GetNearestWareHouse(const InputLoader& loader, Position& p)
 //    }
 }
 
-static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, const Drone& drone)
+static Order* GetNearestOrder(InputLoader& loader, const Position& p, const Drone& drone)
 {
     int min_distance = INT_MAX;
     int orderId = -1;
     for (Order& order : loader.orders)
     {
         bool hasProductToDelivery = false;
-        for (auto it = order.purchasePruducts.begin(); it != order.purchasePruducts.end(); it++)
+        for (auto it = order.purchasedProducts.begin(); it != order.purchasedProducts.end(); it++)
         {
             if (drone.goods.find(it->first) != drone.goods.end())
             {
@@ -50,17 +50,18 @@ static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, 
         }
         if (hasProductToDelivery)
         {
-            int distance = CalculateEula(p, order.Position);
+            int distance = CalculateEula(p, order.deliverPosition);
             if (distance < min_distance)
             {
                 min_distance = distance;
-                orderId = order.Id;
+                orderId = order.id;
             }
         }
     }
     if (orderId != -1)
     {
-        return &loader.orders[orderId]
+        cout << "Found" << endl;
+        return &(loader.orders[orderId]);
     }
     return nullptr;
 }
@@ -68,22 +69,22 @@ static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, 
 
 void load(int drone, int warehouse, int product_type, int count)
 {
-	std::cout << drone << ' ' << 'L' << warehouse << ' ' << product_type << ' ' << count << std::endl;
+	std::cout << drone << ' ' << "L " << warehouse << ' ' << product_type << ' ' << count << std::endl;
 }
 
 void unload(int drone, int warehouse, int product_type, int count)
 {
-	std::cout << drone << ' ' << 'U' << warehouse << ' ' << product_type << ' ' << count << std::endl;
+	std::cout << drone << ' ' << "U " << warehouse << ' ' << product_type << ' ' << count << std::endl;
 }
 
 void deliver(int drone, int order, int product_type, int count)
 {
-	std::cout << drone << ' ' << 'D' << order << ' ' << product_type << ' ' << count << std::endl;
+	std::cout << drone << ' ' << "D " << order << ' ' << product_type << ' ' << count << std::endl;
 }
 
 void wait(int drone, int turn)
 {
-	std::cout << drone << ' ' << 'W' << turn << std::endl;
+	std::cout << drone << ' ' << "W " << turn << std::endl;
 }
 
 
