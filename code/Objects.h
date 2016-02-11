@@ -6,6 +6,7 @@
 #include <sstream>
 #include <memory>
 #include <map>
+#include <math.h>
 
 using namespace std;
 
@@ -26,7 +27,9 @@ struct WareHouse
 	int id;
 	Position position;
 	map<int, int> availableProducts;
-
+	bool containsProduct(int productId) {
+		return availableProducts.find(productId) != availableProducts.end();
+	}
 };
 
 enum Status
@@ -56,6 +59,7 @@ struct Drone
 {
     Drone(Position p)
     {
+		id = 0;
         load = 0;
         position.x = p.x;
         position.y = p.y;
@@ -64,6 +68,7 @@ struct Drone
         productId = 0;
         productCount = 0;
     }
+	int id;
     int load;
     int nextUsableTurn;
     DroneStatus nextAction;
