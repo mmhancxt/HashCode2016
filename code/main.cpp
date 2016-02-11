@@ -6,20 +6,15 @@
 //  Copyright (c) 2016 Liang LIU. All rights reserved.
 //
 #include <iostream>
-#include "PaintFacade.hpp"
+#include "InputLoader.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    FacadePrinter s;
-//    s.PrintWithHorizon();
-    // logo : 68
-    // right_angle: 124
-    // learn_and_teach : 3225
-    
-//    s.ReadData("logo.in");      // 64
-//    s.ReadData("right_angle.in"); // 92
-    s.ReadData("learn_and_teach.in");   // 3486
-    s.PrintImage();
-    return 0;
+
+	string fileName = "C:\\HashCode2016\\HashCode2016\\code\\mother_of_all_warehouses.in";
+	InputLoader loader;
+	loader.LoadFromFile(fileName);
+
+	return 0;
 }

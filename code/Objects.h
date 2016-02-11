@@ -23,6 +23,7 @@ struct Position
 
 struct WareHouse
 {
+	int id;
 	Position position;
 	map<int, int> availableProducts;
 
@@ -37,7 +38,8 @@ enum Status
 
 struct Order
 {
-    Stauts staus;
+	int id;
+	Status staus;
 	Position deliverPosition;
 	map<int, int> purchasedProducts;
 };
