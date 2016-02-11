@@ -44,7 +44,7 @@ struct Order
 
 enum DroneStatus
 {
-    INDEL,
+    FLY,
     WAIT,
     INORDER,
     INWAREHOUSE
