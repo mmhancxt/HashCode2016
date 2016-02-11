@@ -10,7 +10,7 @@
 #define Common_h
 #include "InputLoader.h"
 #include <cmath>
-
+#include <iostream>
 static const int CalculateEula(const Position& a, const Position& b)
 {
     return squr((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y));
@@ -63,5 +63,27 @@ static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, 
     }
     return nullptr;
 }
+
+
+void load(int drone, int warehouse, int product_type, int count)
+{
+	std::cout << drone << ' ' << 'L' << warehouse << ' ' << product_type << ' ' << count << std::endl;
+}
+
+void unload(int drone, int warehouse, int product_type, int count)
+{
+	std::cout << drone << ' ' << 'U' << warehouse << ' ' << product_type << ' ' << count << std::endl;
+}
+
+void deliver(int drone, int order, int product_type, int count)
+{
+	std::cout << drone << ' ' << 'D' << order << ' ' << product_type << ' ' << count << std::endl;
+}
+
+void wait(int drone, int turn)
+{
+	std::cout << drone << ' ' << 'W' << turn << std::endl;
+}
+
 
 #endif /* Common_h */
