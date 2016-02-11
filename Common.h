@@ -31,5 +31,19 @@ static const WareHouse& GetNearestWareHouse(const InputLoader& loader, Position&
     }
 }
 
+static const WareHouse& GetNearestOrder(const InputLoader& loader, Position& p)
+{
+    int min_distance = INT_MAX;
+    int houseId = 0;
+    for (Order& order : loader.orders)
+    {
+        int distance = CalculateEula(p, order.Position);
+        if (distance < min_distance)
+        {
+            min_distance = distance;
+            houseId = house.Id;
+        }
+    }
+}
 
 #endif /* Common_h */
