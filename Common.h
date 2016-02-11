@@ -16,7 +16,7 @@ static const int CalculateEula(const Position& a, const Position& b)
     return squr((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y));
 }
 
-static const WareHouse& GetNearestWareHouse(const InputLoader& loader, Position& p)
+static WareHouse* GetNearestWareHouse(const InputLoader& loader, Position& p)
 {
     int min_distance = INT_MAX;
     int houseId = 0;
@@ -31,20 +31,36 @@ static const WareHouse& GetNearestWareHouse(const InputLoader& loader, Position&
     }
 }
 
-static const WareHouse& GetNearestOrder(const InputLoader& loader, Position& p, const Drone& drone)
+static WareHouse* GetNearestOrder(const InputLoader& loader, const Position& p, const Drone& drone)
 {
     int min_distance = INT_MAX;
-    int houseId = 0;
+    int orderId = -1;
     for (Order& order : loader.orders)
     {
-        if (drone.)
-        int distance = CalculateEula(p, order.Position);
-        if (distance < min_distance)
+        bool hasProductToDelivery = false;
+        for (auto it = order.purchasePruducts.begin(); it != order.purchasePruducts.end(); it++)
         {
-            min_distance = distance;
-            houseId = house.Id;
+            if (drone.goods.find(it->first) != drone.goods.end())
+            {
+                hasProductToDelivery = true;
+                break;
+            }
+        }
+        if (hasProductToDelivery)
+        {
+            int distance = CalculateEula(p, order.Position);
+            if (distance < min_distance)
+            {
+                min_distance = distance;
+                orderId = order.Id;
+            }
         }
     }
+    if (orderId != -1)
+    {
+        return loader.orders[orderId]
+    }
+    return nullptr;
 }
 
 #endif /* Common_h */
