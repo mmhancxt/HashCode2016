@@ -85,7 +85,6 @@ public:
 			{
 				Order order;
 				order.id = i;
-				order.staus = UNPROCESSED;
 
 				getline(file, line);
 				ss << line;
@@ -109,15 +108,22 @@ public:
 					{
 						order.purchasedProducts[productId] += 1;
 					}
-					else
-					{
-						order.purchasedProducts.insert(make_pair(productId, 1));
-					}
+					int productId = j;
+					int productQty;
+					ss >> productQty;
+					house.availableProducts[j] = productQty;
 				}
-				ss.clear();
 
-				orders.push_back(order);
 			}
+
+
+
+
+
+
+
+
+
 
 
 
