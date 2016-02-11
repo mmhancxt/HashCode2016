@@ -28,7 +28,7 @@ struct WareHouse
 	Position position;
 	map<int, int> availableProducts;
 	bool containsProduct(int productId) {
-		return availableProducts.find(productId) != availableProducts.end();
+		return availableProducts[productId] > 0;
 	}
 };
 

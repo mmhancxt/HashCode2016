@@ -14,7 +14,7 @@
 #include <iostream>
 static const int CalculateEula(const Position& a, const Position& b)
 {
-    return sqrt((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y)) + 0.5;
+    return static_cast<int>(sqrt((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y)) + 0.5);
 }
 
 static WareHouse* GetNearestWareHouse(InputLoader& loader, const Position& p)
@@ -65,7 +65,7 @@ static Order* GetNearestOrder(InputLoader& loader, const Position& p, const Dron
     }
     return nullptr;
 }
-
+*/
 
 void load(int drone, int warehouse, int product_type, int count)
 {
