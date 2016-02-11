@@ -41,3 +41,16 @@ struct Order
 	Position deliverPosition;
 	map<int, int> purchasedProducts;
 };
+
+struct Drown
+{
+    Drown(Position p)
+    {
+        load = 0;
+        position.x = p.x;
+        position.y = p.y;
+    }
+    int load;
+    Position position;
+    map<int, int> goods;
+};
