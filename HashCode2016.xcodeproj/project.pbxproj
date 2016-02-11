@@ -26,6 +26,7 @@
 		25915A701C6D0D0E00422C71 /* InputLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputLoader.h; path = code/InputLoader.h; sourceTree = SOURCE_ROOT; };
 		25915A711C6D0D2000422C71 /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Objects.h; path = code/Objects.h; sourceTree = SOURCE_ROOT; };
 		25915A721C6D104400422C71 /* DeliveryByProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeliveryByProduct.h; path = code/DeliveryByProduct.h; sourceTree = SOURCE_ROOT; };
+		25915A731C6D14BF00422C71 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = SOURCE_ROOT; };
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FD60891C4EE9FF0034001B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = code/main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -72,6 +73,7 @@
 				25915A701C6D0D0E00422C71 /* InputLoader.h */,
 				25FD60891C4EE9FF0034001B /* main.cpp */,
 				25915A721C6D104400422C71 /* DeliveryByProduct.h */,
+				25915A731C6D14BF00422C71 /* Common.h */,
 			);
 			name = code;
 			sourceTree = "<group>";

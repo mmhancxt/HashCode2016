@@ -34,13 +34,18 @@ public:
                 productNum[it->first]+= it->second;
             }
         }
-//        while (1)
-//        {
-//            for (int i = 0 ;i < const_droneNum ; i++)
-//            {
-//                if (drone.
-//            }
-//        }
+        while (1)
+        {
+            for (int i = 0 ;i < const_droneNum ; i++)
+            {
+                if (drone.staus != FLY)
+                {
+                    Position p = drone.position;
+                    WareHouse nearestHouse = GetNearestWareHouse(loader, p);
+                    Order nearestOrder = GetNearestOrder(loader, p);
+                }
+            }
+        }
     
     }
 };
