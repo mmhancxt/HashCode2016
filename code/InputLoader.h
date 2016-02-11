@@ -121,15 +121,6 @@ public:
 
 
 
-
-
-
-
-
-
-
-
-
             //while(unavailableSlotNb)
             //{
             //    getline(file, line);
