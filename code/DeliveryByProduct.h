@@ -20,10 +20,10 @@ public:
     
     DeliveryByProduct()
     {
-        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/code/mother_of_all_warehouses.in");
+        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/input/mother_of_all_warehouses.in");
         for (int i = 0 ; i< loader.const_droneNum; i++)
         {
-            Drone d(loader.warehouses[0].position);
+            Drone d(loader.warehouses[0].position, i);
             drowns.push_back(d);
         }
         
@@ -43,13 +43,12 @@ public:
         }
     }
     
-    void Delivery(InputLoader& loader, const Position& p, Drone& drone)
+    void Delivery(InputLoader& loader, Drone& drone)
     {
-        Order* nearestOrder = GetNearestOrder(loader, p, drone);
-        cout << "nearestOrder " << nearestOrder << endl;
+        Order* nearestOrder = GetNearestOrder(loader, drone);
         if (nearestOrder != nullptr)
         {
-            cout << "NearestOrder id is " << nearestOrder->id << endl;
+            vector<int> toErase;
             for (auto it=drone.goods.begin(); it != drone.goods.end(); it++)
             {
                 int productId = it->first;
@@ -63,7 +62,7 @@ public:
                     drone.load = drone.load - loader.products[productId].weight*deliverCount;
                     if (productCountInDrone == deliverCount)
                     {
-                        drone.goods.erase(productId);
+                        toErase.push_back(productId);
                     }
                     else
                     {
@@ -79,19 +78,26 @@ public:
                     }
                 }
             }
+            for (int pId : toErase)
+            {
+                drone.goods.erase(pId);
+            }
+            drone.nextUsableTurn += CalculateEula(nearestOrder->deliverPosition, drone.position);
+            drone.position.x = nearestOrder->deliverPosition.x;
+            drone.position.y = nearestOrder->deliverPosition.y;
             
             if (drone.load == 0)
             {
-                Load(loader, p, drone);
+                Load(loader, drone);
             }
             else
             {
-                Delivery(loader, p, drone);
+                Delivery(loader, drone);
             }
         }
     }
     
-    void Load(InputLoader& loader, const Position& p, Drone& drone)
+    void Load(InputLoader& loader, Drone& drone)
     {
         // next status is load
         int product = -1;
@@ -102,16 +108,21 @@ public:
                 product = productId;
             }
         }
+        if (product == -1)
+        {
+            return;
+        }
         int productSize = std::min((loader.const_maxDroneLoad-drone.load)/loader.products[product].weight, productNum[product]);
         
-        WareHouse* nearestHouse = GetNearestWareHouse(loader, p);
+        WareHouse* nearestHouse = GetNearestWareHouse(loader, drone.position);
         load(drone.id, nearestHouse->id, product, productSize);
         productNum[product]-= productSize;
-        //drone.nextAction = INWAREHOUSE;
-        drone.productId = product;
-        drone.productCount = productSize;
+        drone.goods[product] = productSize;
         drone.load = productSize*loader.products[product].weight;
-        drone.nextUsableTurn = CalculateEula(nearestHouse->position, p)+1;
+        drone.nextUsableTurn += (CalculateEula(nearestHouse->position, drone.position)+1);
+        drone.position.x = nearestHouse->position.x;
+        drone.position.y = nearestHouse->position.y;
+//        cout << "Next available " << drone.nextUsableTurn << endl;
     }
     
     void Start()
@@ -123,20 +134,18 @@ public:
                 Drone& drone = drowns[i];
                 if (drone.nextUsableTurn == turn)
                 {
-                    cout << "Next " << turn << endl;
-                    Position p = drone.position;
+//                    cout << "turn " << turn << endl;
                     if (drone.load != 0)
                     {
-                        Delivery(loader, p, drone);
+                        Delivery(loader, drone);
                     }
                     else
                     {
-                        Load(loader, p, drone);
+                        Load(loader, drone);
                     }
                 }
             }
         }
-        
     }
 };
 

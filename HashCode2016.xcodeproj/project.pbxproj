@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25915A761C712E3400422C71 /* OrderFirst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25915A741C712E3400422C71 /* OrderFirst.cpp */; };
 		25FD608C1C4EE9FF0034001B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25FD60891C4EE9FF0034001B /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		25915A711C6D0D2000422C71 /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Objects.h; path = code/Objects.h; sourceTree = SOURCE_ROOT; };
 		25915A721C6D104400422C71 /* DeliveryByProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeliveryByProduct.h; path = code/DeliveryByProduct.h; sourceTree = SOURCE_ROOT; };
 		25915A731C6D14BF00422C71 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = SOURCE_ROOT; };
+		25915A741C712E3400422C71 /* OrderFirst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OrderFirst.cpp; path = code/OrderFirst.cpp; sourceTree = SOURCE_ROOT; };
+		25915A751C712E3400422C71 /* OrderFirst.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OrderFirst.hpp; path = code/OrderFirst.hpp; sourceTree = SOURCE_ROOT; };
 		25FAD7111C4AF7DD00BD8F4F /* HashCode2016 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashCode2016; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FD60891C4EE9FF0034001B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = code/main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -69,6 +72,8 @@
 		25FD60811C4EE8890034001B /* code */ = {
 			isa = PBXGroup;
 			children = (
+				25915A741C712E3400422C71 /* OrderFirst.cpp */,
+				25915A751C712E3400422C71 /* OrderFirst.hpp */,
 				25915A711C6D0D2000422C71 /* Objects.h */,
 				25915A701C6D0D0E00422C71 /* InputLoader.h */,
 				25FD60891C4EE9FF0034001B /* main.cpp */,
@@ -135,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25FD608C1C4EE9FF0034001B /* main.cpp in Sources */,
+				25915A761C712E3400422C71 /* OrderFirst.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

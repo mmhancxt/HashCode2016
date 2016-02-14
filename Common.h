@@ -33,7 +33,7 @@ static WareHouse* GetNearestWareHouse(InputLoader& loader, const Position& p)
 //    }
 }
 
-static Order* GetNearestOrder(InputLoader& loader, const Position& p, const Drone& drone)
+static Order* GetNearestOrder(InputLoader& loader, const Drone& drone)
 {
     int min_distance = INT_MAX;
     int orderId = -1;
@@ -50,7 +50,7 @@ static Order* GetNearestOrder(InputLoader& loader, const Position& p, const Dron
         }
         if (hasProductToDelivery)
         {
-            int distance = CalculateEula(p, order.deliverPosition);
+            int distance = CalculateEula(drone.position, order.deliverPosition);
             if (distance < min_distance)
             {
                 min_distance = distance;
@@ -60,12 +60,10 @@ static Order* GetNearestOrder(InputLoader& loader, const Position& p, const Dron
     }
     if (orderId != -1)
     {
-        cout << "Found" << endl;
         return &(loader.orders[orderId]);
     }
     return nullptr;
 }
-*/
 
 void load(int drone, int warehouse, int product_type, int count)
 {

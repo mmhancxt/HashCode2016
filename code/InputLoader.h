@@ -158,7 +158,7 @@ public:
 
 		for (int i = 0; i != const_droneNum; ++i)
 		{
-			Drone drone(warehouses[0].position);
+			Drone drone(warehouses[0].position, i);
 			drone.id = i;
 			drone.nextUsableTurn = 0;
 			drones.push_back(drone);

@@ -57,23 +57,23 @@ enum DroneStatus
 
 struct Drone
 {
-    Drone(Position p)
+    Drone(Position p, int i)
     {
-		id = 0;
+		id = i;
         load = 0;
         position.x = p.x;
         position.y = p.y;
         status = INWAREHOUSE;
         nextUsableTurn = 0;
-        productId = 0;
-        productCount = 0;
+        //productId = 0;
+        //productCount = 0;
     }
 	int id;
     int load;
     int nextUsableTurn;
     DroneStatus nextAction;
-    int productId;
-    int productCount;
+    //int productId;
+    //int productCount;
     DroneStatus status;
     Position position;
     map<int, int> goods;
