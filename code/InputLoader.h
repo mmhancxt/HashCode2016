@@ -33,6 +33,7 @@ public:
 			ss >> productsNum;
 			ss.clear();
 
+            const_lightestProduct = INT_MAX;
 			getline(file, line);
 			ss << line;
 			for (int i = 0; i < productsNum; ++i)
@@ -40,6 +41,10 @@ public:
 				Product product;
 				product.id = i;
 				ss >> product.weight;
+                if (product.weight < const_lightestProduct)
+                {
+                    const_lightestProduct = product.weight;
+                }
 				products.push_back(product);
 			}
 			ss.clear();
@@ -175,4 +180,5 @@ public:
 	int const_droneNum;
 	int const_totalTurns;
 	int const_maxDroneLoad;
+    int const_lightestProduct;
 };

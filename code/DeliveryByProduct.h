@@ -20,7 +20,10 @@ public:
     
     DeliveryByProduct()
     {
-        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/input/mother_of_all_warehouses.in");
+        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/input/busy_day.in");
+//        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/input/redundancy.in");
+//        loader.LoadFromFile("/Users/Xavier/Programs/c++/HashCode2016/input/mother_of_all_warehouses.in");
+
         for (int i = 0 ; i< loader.const_droneNum; i++)
         {
             Drone d(loader.warehouses[0].position, i);
@@ -36,8 +39,6 @@ public:
         {
             for (auto it=order.purchasedProducts.begin(); it!= order.purchasedProducts.end(); it++)
             {
-                //cout << it->first << endl;
-                //cout << it->second << endl;
                 productNum[it->first]+= it->second;
             }
         }
@@ -82,47 +83,48 @@ public:
             {
                 drone.goods.erase(pId);
             }
-            drone.nextUsableTurn += CalculateEula(nearestOrder->deliverPosition, drone.position);
+            drone.nextUsableTurn += (CalculateEula(nearestOrder->deliverPosition, drone.position) + 1);
             drone.position.x = nearestOrder->deliverPosition.x;
             drone.position.y = nearestOrder->deliverPosition.y;
-            
-            if (drone.load == 0)
-            {
-                Load(loader, drone);
-            }
-            else
-            {
-                Delivery(loader, drone);
-            }
         }
     }
     
-    void Load(InputLoader& loader, Drone& drone)
+    bool LoadAProduct(InputLoader& loader, Drone& drone)
     {
-        // next status is load
         int product = -1;
         for (int productId = 0; productId < productNum.size() && product == -1; productId++)
         {
-            if (productNum[productId] != 0)
+            if (productNum[productId] != 0 && loader.products[productId].weight <= (loader.const_maxDroneLoad-drone.load))
             {
                 product = productId;
             }
         }
         if (product == -1)
         {
-            return;
+            return false;
         }
-        int productSize = std::min((loader.const_maxDroneLoad-drone.load)/loader.products[product].weight, productNum[product]);
+        WareHouse* nearestHouse = GetNearestWareHouse(loader, drone, product);
         
-        WareHouse* nearestHouse = GetNearestWareHouse(loader, drone.position);
+        int productCountInHouse = nearestHouse->availableProducts[product];
+        int productSize = std::min((loader.const_maxDroneLoad-drone.load)/loader.products[product].weight,
+                                   std::min(productCountInHouse, productNum[product]));
+        
         load(drone.id, nearestHouse->id, product, productSize);
         productNum[product]-= productSize;
+        nearestHouse->availableProducts[product] = productCountInHouse - productSize;
         drone.goods[product] = productSize;
-        drone.load = productSize*loader.products[product].weight;
+        drone.load += productSize*loader.products[product].weight;
         drone.nextUsableTurn += (CalculateEula(nearestHouse->position, drone.position)+1);
         drone.position.x = nearestHouse->position.x;
         drone.position.y = nearestHouse->position.y;
-//        cout << "Next available " << drone.nextUsableTurn << endl;
+        return true;
+    }
+    
+    void Load(InputLoader& loader, Drone& drone)
+    {
+        while (LoadAProduct(loader, drone))
+        {
+        }
     }
     
     void Start()
@@ -134,7 +136,6 @@ public:
                 Drone& drone = drowns[i];
                 if (drone.nextUsableTurn == turn)
                 {
-//                    cout << "turn " << turn << endl;
                     if (drone.load != 0)
                     {
                         Delivery(loader, drone);
